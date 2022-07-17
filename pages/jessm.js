@@ -11,10 +11,15 @@ export default function Counter({ title }) {
   return (
     <div>
       <h3>{ title }</h3>
+
       <div> {value}</div>
-      <button onClick={handleClick}>Add</button>
-      <button onClick={() => setValue((newValue) => newValue - 1)}>Subtract</button>
+      {/* <button onClick={handleClick}>Add</button> */}
+      { value === 0
+        ? <button disabled> Disabled</button>
+        : <button onClick={() => setValue((newValue) => newValue - 1)}>Subtract</button>}
       <button onClick={() => setValue(0)}>Reset</button>
+      { value === 5
+        ? <button variant="danger"> Game Over </button> : <button onClick={handleClick}>Add</button>}
     </div>
   );
 }
